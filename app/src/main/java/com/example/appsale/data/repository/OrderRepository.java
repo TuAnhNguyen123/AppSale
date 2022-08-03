@@ -23,4 +23,25 @@ public class OrderRepository {
         body.put("id_product",idFood);
         return apiService.addToCart(body);
     }
+
+    public Call<AppResource<OrderDTO>> cartOrder() {
+        return apiService.cartOrder();
+    }
+
+    public Call<AppResource<OrderDTO>> updateCart(String idFood, String idCart, String quantity) {
+        HashMap<String,String> body = new HashMap<>();
+        body.put("id_product",idFood);
+        body.put("id_cart",idCart);
+        body.put("quantity",quantity);
+        return apiService.updateCart(body);
+
+    }
+
+    public Call<AppResource<OrderDTO>> confirmOrdersCart(String idCart){
+        HashMap<String,String> body = new HashMap<>();
+        body.put("id_cart",idCart);
+        body.put("status","true");
+        return apiService.confirmItemCart(body);
+
+    }
 }

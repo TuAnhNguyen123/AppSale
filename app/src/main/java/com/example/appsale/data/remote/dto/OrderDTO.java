@@ -17,6 +17,15 @@ public class OrderDTO {
     private String idUser;
     private Integer price;
     private Boolean status;
+    private String date_created;
+
+    public String getDate_created() {
+        return date_created;
+    }
+
+    public void setDate_created(String date_created) {
+        this.date_created = date_created;
+    }
 
     public String getId() {
         return id;

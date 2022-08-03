@@ -10,6 +10,9 @@ public class Order {
     private String idUser;
     private Integer price;
     private Boolean status;
+    private String date_created;
+
+    public Order(){}
 
     public Order(String id, List<Food> foods, String idUser, Integer price, Boolean status) {
         this.id = id;
@@ -19,6 +22,22 @@ public class Order {
         this.status = status;
     }
 
+    public Order(String id, List<Food> foods, String idUser, Integer price, Boolean status, String date_created) {
+        this.id = id;
+        this.foods = foods;
+        this.idUser = idUser;
+        this.price = price;
+        this.status = status;
+        this.date_created = date_created;
+    }
+
+    public String getDate_created() {
+        return date_created;
+    }
+
+    public void setDate_created(String date_created) {
+        this.date_created = date_created;
+    }
     public String getId() {
         return id;
     }
@@ -69,4 +88,5 @@ public class Order {
                 ", status=" + status +
                 '}';
     }
+
 }

@@ -4,6 +4,7 @@ import static com.example.appsale.data.remote.dto.AppResource.Status.ERROR;
 import static com.example.appsale.data.remote.dto.AppResource.Status.LOADING;
 import static com.example.appsale.data.remote.dto.AppResource.Status.SUCCESS;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -60,24 +61,24 @@ public class HomeActivity extends AppCompatActivity {
                     break;
             }
         });
-    homeViewModel.getOrder().observe(this, (Observer<AppResource<Order>>) orderAppResource -> {
-        switch (orderAppResource.status) {
-            case LOADING:
-                layoutLoading.setVisibility(View.VISIBLE);
-                break;
-            case SUCCESS:
-                layoutLoading.setVisibility(View.GONE);
-                int quantities = getQuantity(orderAppResource.data == null ? null :  orderAppResource.data.getFoods());
-                setupBadge(quantities);
-                break;
-            case ERROR:
-                Toast.makeText(HomeActivity.this, orderAppResource.message, Toast.LENGTH_SHORT).show();
-                layoutLoading.setVisibility(View.GONE);
-                break;
-        }
-    });
+        homeViewModel.getOrder().observe(this, (Observer<AppResource<Order>>) orderAppResource -> {
+            switch (orderAppResource.status) {
+                case LOADING:
+                    layoutLoading.setVisibility(View.VISIBLE);
+                    break;
+                case SUCCESS:
+                    layoutLoading.setVisibility(View.GONE);
+                    int quantities = getQuantity(orderAppResource.data == null ? null :  orderAppResource.data.getFoods());
+                    setupBadge(quantities);
+                    break;
+                case ERROR:
+                    Toast.makeText(HomeActivity.this, orderAppResource.message, Toast.LENGTH_SHORT).show();
+                    layoutLoading.setVisibility(View.GONE);
+                    break;
+            }
+        });
 
-}
+    }
     private void events() {
         homeViewModel.fetchFoods();
         foodAdapter.setOnItemClickFood(position -> homeViewModel.fetchOrder(foodAdapter.getListFoods().get(position).getId()));
@@ -119,6 +120,7 @@ public class HomeActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_cart:
+                startActivity(new Intent(this, com.example.appsale29032022.presentation.view.activity.detail_cart.DetailCartActivity.class));
                 break;
         }
         return super.onOptionsItemSelected(item);

@@ -31,5 +31,12 @@ public interface ApiService {
     Call<AppResource<OrderDTO>> addToCart(@Body HashMap<String, String> body);
 
     @GET("cart")
-    Call<AppResource<List<FoodDTO>>> cartFoods();
+    Call<AppResource<OrderDTO>> cartOrder();
+
+    @POST("cart/update")
+    Call<AppResource<OrderDTO>> updateCart(@Body HashMap<String,String> body);
+
+    @POST("cart/conform")
+    Call<AppResource<OrderDTO>> confirmItemCart(@Body HashMap<String,String> body);
+
 }
