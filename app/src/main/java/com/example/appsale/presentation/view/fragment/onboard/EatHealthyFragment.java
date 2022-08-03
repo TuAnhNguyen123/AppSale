@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.example.appsale29032022.R;
+import com.example.appsale.R;
 
 public class EatHealthyFragment extends Fragment {
 

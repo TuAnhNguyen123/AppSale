@@ -23,6 +23,7 @@ import com.example.appsale.R;
 import com.example.appsale.data.model.Food;
 import com.example.appsale.data.model.Order;
 import com.example.appsale.data.remote.dto.AppResource;
+import com.example.appsale.presentation.view.activity.detail_cart.DetailCartActivity;
 import com.example.appsale.presentation.view.adapter.FoodAdapter;
 
 import java.util.List;
@@ -120,7 +121,7 @@ public class HomeActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_cart:
-                startActivity(new Intent(this, com.example.appsale29032022.presentation.view.activity.detail_cart.DetailCartActivity.class));
+                startActivity(new Intent(this, DetailCartActivity.class));
                 break;
         }
         return super.onOptionsItemSelected(item);

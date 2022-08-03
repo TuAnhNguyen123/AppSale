@@ -2,7 +2,6 @@ package com.example.appsale.data.repository;
 
 import android.content.Context;
 
-import com.example.appsale.data.model.Food;
 import com.example.appsale.data.remote.ApiService;
 import com.example.appsale.data.remote.RetrofitClient;
 import com.example.appsale.data.remote.dto.AppResource;

@@ -9,7 +9,7 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 
-import com.example.appsale29032022.R;
+import com.example.appsale.R;
 
 /**
  * Created by pphat on 7/16/2022.
