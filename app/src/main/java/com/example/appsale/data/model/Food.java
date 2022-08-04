@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Food {
 
-    private String id;
+    private String _id;
     private String name;
     private String address;
     private int price;
@@ -15,7 +15,7 @@ public class Food {
     public Food() { }
 
     public Food(String id, String name, String address, int price, String img, int quantity, List<String> gallery) {
-        this.id = id;
+        this._id = id;
         this.name = name;
         this.address = address;
         this.price = price;
@@ -25,11 +25,11 @@ public class Food {
     }
 
     public String getId() {
-        return id;
+        return _id;
     }
 
     public void setId(String id) {
-        this.id = id;
+        this._id = id;
     }
 
     public String getName() {
@@ -83,7 +83,7 @@ public class Food {
     @Override
     public String toString() {
         return "Food{" +
-                "id='" + id + '\'' +
+                "id='" + _id + '\'' +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", price=" + price +

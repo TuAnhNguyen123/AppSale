@@ -1,12 +1,10 @@
 package com.example.appsale.presentation.view.adapter;
 
-
 /**
  * Created by ntudroid on 7/26/2022.
  */
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +20,6 @@ import com.example.appsale.R;
 import com.example.appsale.common.AppConstant;
 import com.example.appsale.common.StringCommon;
 import com.example.appsale.data.model.Food;
-
 
 import java.util.ArrayList;
 import java.util.List;

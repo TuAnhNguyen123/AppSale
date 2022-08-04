@@ -22,6 +22,7 @@ public class OrderRepository {
         HashMap<String,String> body = new HashMap<>();
         body.put("id_product",idFood);
         return apiService.addToCart(body);
+
     }
 
     public Call<AppResource<OrderDTO>> cartOrder() {

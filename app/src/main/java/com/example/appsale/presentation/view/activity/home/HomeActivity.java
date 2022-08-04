@@ -1,9 +1,5 @@
 package com.example.appsale.presentation.view.activity.home;
 
-import static com.example.appsale.data.remote.dto.AppResource.Status.ERROR;
-import static com.example.appsale.data.remote.dto.AppResource.Status.LOADING;
-import static com.example.appsale.data.remote.dto.AppResource.Status.SUCCESS;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;

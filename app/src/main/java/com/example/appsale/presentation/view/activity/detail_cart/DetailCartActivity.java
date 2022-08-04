@@ -29,10 +29,10 @@ import java.util.List;
 public class DetailCartActivity extends AppCompatActivity {
 
     DetailCartViewModel detailCartViewModel;
-    private OrderCartAdapter orderCartAdapter;
-    private RecyclerView rcvCart;
+    OrderCartAdapter orderCartAdapter;
+    RecyclerView rcvCart;
     TextView    totalTxt, createCart, emptyCartTxt;
-    private ScrollView scrollView;
+    ScrollView scrollView;
     LinearLayout layoutLoading;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +74,7 @@ public class DetailCartActivity extends AppCompatActivity {
     }
 
     private void setUpdateCart(String idCart) {
-        orderCartAdapter.setOnItemClickOrder((position, quantity) -> detailCartViewModel.UpdateCart(orderCartAdapter.getListFoods().get(position).getId(),idCart,quantity));
+        orderCartAdapter.setOnItemClickOrder((position, quantity) -> detailCartViewModel.updateCart(orderCartAdapter.getListFoods().get(position).getId(),idCart,quantity));
 
     }
 
