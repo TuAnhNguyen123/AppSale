@@ -20,7 +20,6 @@ import com.example.appsale.common.StringCommon;
 import com.example.appsale.data.model.Food;
 import com.example.appsale.data.model.Order;
 import com.example.appsale.data.remote.dto.AppResource;
-import com.example.appsale.presentation.view.activity.detail_cart.DetailCartViewModel;
 import com.example.appsale.presentation.view.activity.home.HomeActivity;
 import com.example.appsale.presentation.view.adapter.OrderCartAdapter;
 
@@ -84,8 +83,7 @@ public class DetailCartActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 detailCartViewModel.confirmOrdersCart(id);
-                Intent intent = new Intent(DetailCartActivity.this, HomeActivity.class);
-                startActivity(intent);
+                startActivity(new Intent(DetailCartActivity.this, HomeActivity.class));
                 finish();
                 Toast.makeText(DetailCartActivity.this,"Order Success",Toast.LENGTH_SHORT).show();
             }

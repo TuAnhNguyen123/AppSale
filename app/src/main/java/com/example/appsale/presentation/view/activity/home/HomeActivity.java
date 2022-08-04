@@ -73,7 +73,6 @@ public class HomeActivity extends AppCompatActivity {
                     setupBadge(quantities);
                     break;
                 case ERROR:
-                    Toast.makeText(HomeActivity.this, orderAppResource.message, Toast.LENGTH_SHORT).show();
                     layoutLoading.setVisibility(View.GONE);
                     break;
             }
@@ -82,6 +81,7 @@ public class HomeActivity extends AppCompatActivity {
     }
     private void events() {
         homeViewModel.fetchFoods();
+        homeViewModel.fetchCartOrder();
         foodAdapter.setOnItemClickFood(position -> homeViewModel.fetchOrder(foodAdapter.getListFoods().get(position).getId()));
     }
 

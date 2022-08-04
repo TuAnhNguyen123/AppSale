@@ -27,13 +27,13 @@ import retrofit2.Response;
 
 public class HomeViewModel extends ViewModel {
     private final FoodRepository foodRepository;
-    private final OrderRepository oderRepository;
+    private final OrderRepository orderRepository;
     private MutableLiveData<AppResource<List<Food>>> resourceFood;
     private MutableLiveData<AppResource<Order>> orderData = new MutableLiveData<>();
 
     public HomeViewModel(Context context) {
         foodRepository = new FoodRepository(context);
-        oderRepository = new OrderRepository(context);
+        orderRepository = new OrderRepository(context);
         if (resourceFood == null) {
             resourceFood = new MutableLiveData<>();
         }
@@ -94,7 +94,7 @@ public class HomeViewModel extends ViewModel {
 
     public void fetchOrder(String idFood) {
         orderData.setValue(new AppResource.Loading(null));
-        Call<AppResource<OrderDTO>> callOrder = oderRepository.addToCart(idFood);
+        Call<AppResource<OrderDTO>> callOrder = orderRepository.addToCart(idFood);
         callOrder.enqueue(new Callback<AppResource<OrderDTO>>() {
             @Override
             public void onResponse(Call<AppResource<OrderDTO>> call, Response<AppResource<OrderDTO>> response) {
@@ -131,5 +131,43 @@ public class HomeViewModel extends ViewModel {
             }
         });
     }
+    public void fetchCartOrder() {
+        orderData.setValue(new AppResource.Loading(null));
+        Call<AppResource<OrderDTO>> callOrder = orderRepository.cartOrder();
+        callOrder.enqueue(new Callback<AppResource<OrderDTO>>() {
+            @Override
+            public void onResponse(Call<AppResource<OrderDTO>> call, Response<AppResource<OrderDTO>> response) {
+                if (response.isSuccessful()) {
+                    AppResource<OrderDTO> orderResponse = response.body();
 
+                    if (orderResponse.data != null) {
+                        OrderDTO orderDTO = orderResponse.data;
+                        orderData.setValue(
+                                new AppResource.Success(
+                                        new Order(
+                                                orderDTO.getId(),
+                                                orderDTO.getFoods(),
+                                                orderDTO.getId(),
+                                                orderDTO.getPrice(),
+                                                orderDTO.getStatus())));
+                    }
+                } else {
+                    try {
+                        JSONObject jsonObject = new JSONObject(response.errorBody().string());
+                        String message = jsonObject.getString("message");
+                        orderData.setValue(new AppResource.Error<>(message));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<AppResource<OrderDTO>> call, Throwable t) {
+                orderData.setValue(new AppResource.Error<>(t.getMessage()));
+            }
+        });
+    }
 }

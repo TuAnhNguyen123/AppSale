@@ -65,7 +65,7 @@ public class OrderCartAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         context = parent.getContext();
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.layout_item_order, parent, false);
+        View view = layoutInflater.inflate(R.layout.item_order, parent, false);
         return new OrderViewHolder(view);
     }
 
@@ -85,7 +85,7 @@ public class OrderCartAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
         TextView tvName, tvPrice;
         ImageView img;
-        TextView txtQuanity;
+        TextView txtQuantity;
         Button btnPlusQuantity, btnMinusQuantity;
 
         public OrderViewHolder(@NonNull View view) {
@@ -95,14 +95,14 @@ public class OrderCartAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             img = view.findViewById(R.id.imageViewOrder);
             btnPlusQuantity = view.findViewById(R.id.btnPlus);
             btnMinusQuantity = view.findViewById(R.id.btnMinus);
-            txtQuanity = view.findViewById(R.id.textviewQuantity);
+            txtQuantity = view.findViewById(R.id.textviewQuantity);
 
         }
 
         public void bind(Context context, Food food) {
             int quantity = food.getQuantity();
             tvName.setText(food.getName());;
-            txtQuanity.setText(quantity+"");
+            txtQuantity.setText(quantity+" ");
             tvPrice.setText(String.format("%s VND", StringCommon.formatCurrency(food.getPrice())));
             Glide.with(context)
                     .load(AppConstant.BASE_URL  + food.getImg())
@@ -114,7 +114,6 @@ public class OrderCartAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 public void onClick(View view) {
                     if (onItemClickOrder != null) {
                         onItemClickOrder.onClick(getAdapterPosition(),String.valueOf(quantity+1));
-                        Log.d("TAG", "onClick: " +getAdapterPosition());
                     }
                 }
             });
