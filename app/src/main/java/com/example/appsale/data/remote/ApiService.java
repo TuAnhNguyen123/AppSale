@@ -5,6 +5,8 @@ import com.example.appsale.data.remote.dto.FoodDTO;
 import com.example.appsale.data.remote.dto.OrderDTO;
 import com.example.appsale.data.remote.dto.UserDTO;
 
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.List;
 
@@ -39,4 +41,6 @@ public interface ApiService {
     @POST("cart/conform")
     Call<AppResource<OrderDTO>> confirmItemCart(@Body HashMap<String,String> body);
 
+    @POST("order/history")
+    Call<AppResource<List<OrderDTO>>> historyOrder(@Body JSONObject emptyString);
 }

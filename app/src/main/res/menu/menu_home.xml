@@ -3,9 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/action_history"
+        android:icon="@drawable/history_cart"
+        android:title="Cart"
+        app:showAsAction="always"/>
+
+    <item
         android:id="@+id/action_cart"
         android:icon="@drawable/ic_store"
         android:title="Cart"
         app:actionLayout="@layout/layout_action_badge_item"
         app:showAsAction="always"/>
+
 </menu>

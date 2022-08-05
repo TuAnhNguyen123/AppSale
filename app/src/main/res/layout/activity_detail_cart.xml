@@ -7,7 +7,7 @@
     tools:context=".presentation.view.activity.detail_cart.DetailCartActivity">
 
     <ScrollView
-        android:id="@+id/scrollView2"
+        android:id="@+id/scrollViewHistory"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -28,7 +28,7 @@
                 android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerViewCart"
+                android:id="@+id/recyclerViewHistoryOrder"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -73,18 +73,16 @@
         </LinearLayout>
     </ScrollView>
 
-    <TextView
+    <ImageView
         android:id="@+id/emptyCart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Your Cart Is Empty !! "
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:src="@drawable/empty_cart"
+        app:layout_constraintBottom_toBottomOf="@+id/scrollViewHistory"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/scrollViewHistory" />
+
     <include
         android:id="@+id/layout_loading"
         layout="@layout/layout_loading"

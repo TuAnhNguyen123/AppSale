@@ -5,14 +5,17 @@
       <map>
         <entry key="..\:/AppSale/app/src/main/res/drawable/background_badge.xml" value="0.1" />
         <entry key="..\:/AppSale/app/src/main/res/layout/activity_detail_cart.xml" value="0.1" />
+        <entry key="..\:/AppSale/app/src/main/res/layout/activity_history_order.xml" value="0.18489583333333334" />
         <entry key="..\:/AppSale/app/src/main/res/layout/activity_home.xml" value="0.19114583333333332" />
         <entry key="..\:/AppSale/app/src/main/res/layout/item_order.xml" value="0.1890625" />
+        <entry key="..\:/AppSale/app/src/main/res/layout/layout_action_badge_item.xml" value="0.5" />
+        <entry key="..\:/AppSale/app/src/main/res/layout/layout_item_history_order.xml" value="0.3703125" />
         <entry key="..\:/AppSale/app/src/main/res/layout/layout_item_order.xml" value="0.24074074074074073" />
-        <entry key="..\:/AppSale/app/src/main/res/menu/menu_home.xml" value="0.1" />
+        <entry key="..\:/AppSale/app/src/main/res/menu/menu_home.xml" value="0.22" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

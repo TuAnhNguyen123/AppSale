@@ -20,6 +20,7 @@ import com.example.appsale.data.model.Food;
 import com.example.appsale.data.model.Order;
 import com.example.appsale.data.remote.dto.AppResource;
 import com.example.appsale.presentation.view.activity.detail_cart.DetailCartActivity;
+import com.example.appsale.presentation.view.activity.history.historyOrder.HistoryOrderActivity;
 import com.example.appsale.presentation.view.adapter.FoodAdapter;
 
 import java.util.List;
@@ -119,6 +120,8 @@ public class HomeActivity extends AppCompatActivity {
             case R.id.action_cart:
                 startActivity(new Intent(this, DetailCartActivity.class));
                 break;
+            case R.id.action_history:
+                startActivity(new Intent(this, HistoryOrderActivity.class));
         }
         return super.onOptionsItemSelected(item);
     }

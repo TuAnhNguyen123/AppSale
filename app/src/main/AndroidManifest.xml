@@ -13,6 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppSale">
         <activity
+            android:name=".presentation.view.activity.history.historyOrderDetail.HistoryOrderDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.view.activity.history.historyOrder.HistoryOrderActivity"
+            android:exported="false" />
+        <activity
             android:name=".presentation.view.activity.detail_cart.DetailCartActivity"
             android:exported="false" />
         <activity

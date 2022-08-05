@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -31,7 +32,8 @@ public class DetailCartActivity extends AppCompatActivity {
     DetailCartViewModel detailCartViewModel;
     OrderCartAdapter orderCartAdapter;
     RecyclerView rcvCart;
-    TextView    totalTxt, createCart, emptyCartTxt;
+    TextView    totalTxt, createCart;
+    ImageView emptyCartImg;
     ScrollView scrollView;
     LinearLayout layoutLoading;
     @Override
@@ -56,13 +58,13 @@ public class DetailCartActivity extends AppCompatActivity {
                     totalTxt.setText("Sum Price: "+String.format("%s VND", StringCommon.formatCurrency(orderAppResource.data.getPrice())));
                     setUpdateCart(orderAppResource.data.getId());
                     setConfirmCart(orderAppResource.data.getId());
-                    emptyCartTxt.setVisibility(View.GONE);
+                    emptyCartImg.setVisibility(View.GONE);
                     scrollView.setVisibility(View.VISIBLE);
                     break;
                 case ERROR:
                     Toast.makeText(DetailCartActivity.this, orderAppResource.message, Toast.LENGTH_SHORT).show();
                     layoutLoading.setVisibility(View.GONE);
-                    emptyCartTxt.setVisibility(View.VISIBLE);
+                    emptyCartImg.setVisibility(View.VISIBLE);
                     scrollView.setVisibility(View.GONE);
                     List<Food> foodList = new ArrayList<>();
                     foodList.add(null);
@@ -99,8 +101,8 @@ public class DetailCartActivity extends AppCompatActivity {
         layoutLoading = findViewById(R.id.layout_loading);
         createCart = findViewById(R.id.button_create_cart);
         totalTxt = findViewById(R.id.txtTotalPrice);
-        emptyCartTxt = findViewById(R.id.emptyCart);
-        scrollView = findViewById(R.id.scrollView2);
+        emptyCartImg = findViewById(R.id.emptyCart);
+        scrollView = findViewById(R.id.scrollViewHistory);
         detailCartViewModel = new ViewModelProvider(this, new ViewModelProvider.Factory() {
             @NonNull
             @Override
@@ -111,7 +113,7 @@ public class DetailCartActivity extends AppCompatActivity {
         orderCartAdapter = new OrderCartAdapter();
 
         // Setup RecyclerView
-        rcvCart = findViewById(R.id.recyclerViewCart);
+        rcvCart = findViewById(R.id.recyclerViewHistoryOrder);
         rcvCart.setAdapter(orderCartAdapter);
         rcvCart.setHasFixedSize(true);
 
