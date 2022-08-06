@@ -62,7 +62,7 @@ public class OrderCartAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         context = parent.getContext();
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.item_order, parent, false);
+        View view = layoutInflater.inflate(R.layout.layout_item_order, parent, false);
         return new OrderViewHolder(view);
     }
 
@@ -87,7 +87,7 @@ public class OrderCartAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
         public OrderViewHolder(@NonNull View view) {
             super(view);
-            tvName = view.findViewById(R.id.textViewName);
+            tvName = view.findViewById(R.id.textViewNameOrderHistory);
             tvPrice = view.findViewById(R.id.textViewPrice);
             img = view.findViewById(R.id.imageViewOrder);
             btnPlusQuantity = view.findViewById(R.id.btnPlus);

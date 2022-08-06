@@ -17,16 +17,16 @@ import retrofit2.Call;
  * Created by ntudroid on 8/5/2022.
  */
 public class HistoryRepository {
-private ApiService apiService;
+        private ApiService apiService;
 
-public HistoryRepository(Context context) {
-        apiService = RetrofitClient.getInstance(context).getApiService();
-
-        }
-
-public Call<AppResource<List<OrderDTO>>> fetchHistory() {
-        JSONObject jsonObject = new JSONObject();
-        return apiService.historyOrder(jsonObject);
+        public HistoryRepository(Context context) {
+                apiService = RetrofitClient.getInstance(context).getApiService();
 
         }
+
+        public Call<AppResource<List<OrderDTO>>> fetchHistory() {
+                JSONObject jsonObject = new JSONObject();
+                return apiService.historyOrder(jsonObject);
+
         }
+}

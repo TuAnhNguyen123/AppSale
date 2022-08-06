@@ -9,7 +9,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -19,7 +18,6 @@ import com.example.appsale.common.StringCommon;
 import com.example.appsale.data.model.Food;
 
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -72,7 +70,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
 
         public FoodViewHolder(@NonNull View view) {
             super(view);
-            tvName = view.findViewById(R.id.textViewName);
+            tvName = view.findViewById(R.id.textViewNameOrderHistory);
             tvAddress = view.findViewById(R.id.textViewAddress);
             tvPrice = view.findViewById(R.id.textViewPrice);
             img = view.findViewById(R.id.imageView);
